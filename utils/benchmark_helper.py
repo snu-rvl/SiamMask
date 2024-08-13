@@ -15,7 +15,7 @@ sys.path.append("/content/drive/MyDrive/SiamMask/")
 sys.path.append("/content/drive/MyDrive/SiamMask/experiments/siammask_sharp")
 
 def get_dataset_zoo():
-    root = 'data'
+    root = '/content/drive/MyDrive/SiamMask/data'
     zoos = listdir(root)
 
     def valid(x):
@@ -37,7 +37,7 @@ dataset_zoo = get_dataset_zoo()
 def load_dataset(dataset):
     info = OrderedDict()
     if 'VOT' in dataset:
-        base_path = join('data', dataset)
+        base_path = join('/content/drive/MyDrive/SiamMask/data', dataset)
         if not exists(base_path):
             logging.error("Please download test dataset!!!")
             exit()
