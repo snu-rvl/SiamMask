@@ -12,6 +12,9 @@ from os.path import join, realpath, dirname
 
 from tqdm import tqdm
 from multiprocessing import Pool
+
+import sys
+sys.path.append("/content/drive/MyDrive/SiamMask/")
 from utils.pysot.datasets import VOTDataset
 from utils.pysot.evaluation import AccuracyRobustnessBenchmark, EAOBenchmark
 
