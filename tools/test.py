@@ -583,6 +583,8 @@ def main():
     for v_id, video in enumerate(dataset.keys(), start=1):
         if args.video != '' and video != args.video:
             continue
+        if v_id > 5:
+            break
 
         if vos_enable:
             iou_list, speed = track_vos(model, dataset[video], cfg['hp'] if 'hp' in cfg.keys() else None,
