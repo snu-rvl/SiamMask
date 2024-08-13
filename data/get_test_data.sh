@@ -8,4 +8,4 @@ cp dl/vot2018/list.txt ../VOT2018/
 cd .. && rm -rf ./trackdat
 
 # json file for eval toolkit
-wget http://www.robots.ox.ac.uk/~qwang/VOT2018.json
+# wget http://www.robots.ox.ac.uk/~qwang/VOT2018.json
