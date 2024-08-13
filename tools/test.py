@@ -12,6 +12,9 @@ from PIL import Image
 from os import makedirs
 from os.path import join, isdir, isfile
 
+import sys
+sys.path.append("/content/drive/MyDrive/SiamMask/")
+
 from utils.log_helper import init_log, add_file_handler
 from utils.load_helper import load_pretrain
 from utils.bbox_helper import get_axis_aligned_bbox, cxy_wh_2_rect
@@ -282,10 +285,7 @@ def siamese_track(state, im, mask_enable=False, refine_enable=False, device='cpu
         mask_in_img = crop_back(mask, back_box, (state['im_w'], state['im_h']))
 
         target_mask = (mask_in_img > p.seg_thr).astype(np.uint8)
-        if cv2.__version__[-5] == '4':
-            contours, _ = cv2.findContours(target_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-        else:
-            _, contours, _ = cv2.findContours(target_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        contours, _ = cv2.findContours(target_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
         cnt_area = [cv2.contourArea(cnt) for cnt in contours]
         if len(contours) != 0 and np.max(cnt_area) > 100:
             contour = contours[np.argmax(cnt_area)]  # use max area polygon
