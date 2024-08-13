@@ -10,7 +10,9 @@ import glob
 import numpy as np
 import json
 from collections import OrderedDict
-
+import sys
+sys.path.append("/content/drive/MyDrive/SiamMask/")
+sys.path.append("/content/drive/MyDrive/SiamMask/experiments/siammask_sharp")
 
 def get_dataset_zoo():
     root = 'data'
